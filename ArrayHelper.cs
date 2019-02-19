@@ -10,15 +10,15 @@ namespace PadawansTask5
                 throw new ArgumentNullException();
             if (source.Length < 2)
                 throw new ArgumentException();
-            //if ((source.Length % 2) > 0)
-            //    return "No";
             int zeroCount = 0;
             for (int i = 0; i < source.Length; i++)
                 if (source[i] == 0)
                     zeroCount++;
-            if ((zeroCount == 0) || (zeroCount == source.Length))
-                throw new ArgumentException();
-            if (zeroCount == (source.Length / 2))
+            int oneCount = 0;
+            for (int i = 0; i < source.Length; i++)
+                if (source[i] == 1)
+                    oneCount++;
+            if (zeroCount == oneCount)
                 return "Yes";
             else
                 return "No";
