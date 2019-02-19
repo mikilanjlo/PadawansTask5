@@ -8,17 +8,13 @@ namespace PadawansTask5
         {
             if (source == null)
                 throw new ArgumentNullException();
-            if (source.Length < 2)
+            if (source.Length < 1)
                 throw new ArgumentException();
-            int zeroCount = 0;
-            for (int i = 0; i < source.Length; i++)
-                if (source[i] == 0)
-                    zeroCount++;
-            int oneCount = 0;
-            for (int i = 0; i < source.Length; i++)
-                if (source[i] == 1)
-                    oneCount++;
-            if (zeroCount == oneCount)
+            bool simetric = true;
+            for (int i = 0; i < source.Length / 2; i++)
+                if (source[i] != source[source.Length - 1 - i])
+                    simetric = false;
+            if(simetric)
                 return "Yes";
             else
                 return "No";
